@@ -1,0 +1,42 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> RS Analysis Attack và Giải Mã </title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="container">
+    <h1>RS Analysis Attack và Decrypt</h1>
+  </header>
+
+  <main class="container grid">
+
+    <!-- Phân tích RS -->
+    <section class="card">
+      <h2>1) Phân tích RS Analysis</h2>
+      <form action="{{ url_for('analysis_route') }}" method="post" enctype="multipart/form-data" class="form">
+        <label for="image-analysis">Chọn ảnh cần kiểm tra:</label>
+        <input id="image-analysis" type="file" name="image" accept=".png,.bmp,.jpg,.jpeg" required>
+
+        <button type="submit">Phân tích</button>
+      </form>
+      <p class="hint">Tải lên ảnh bất kỳ (ảnh thường hoặc ảnh đã giấu tin) để kiểm tra.</p>
+    </section>
+
+    <!-- Giải mã -->
+<section class="card">
+  <h2>2) Decrypt Thông điệp ẩn từ ảnh</h2>
+  <form action="{{ url_for('extract_route') }}" method="post" enctype="multipart/form-data" class="form">
+    <label for="image-extract">Chọn ảnh stego:</label>
+    <input id="image-extract" type="file" name="image" accept=".png,.bmp,.jpg,.jpeg" required>
+    <button type="submit">Decrypt</button>
+  </form>
+</section>
+
+    
+  </main>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

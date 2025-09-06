@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kết quả RS Analysis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="container">
+    <h1>Kết quả RS Analysis</h1>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <ul class="stats">
+        <li><strong>Regular (R):</strong> {{ R }} ({{ '%.4f'|format(R_ratio) }})</li>
+        <li><strong>Singular (S):</strong> {{ S }} ({{ '%.4f'|format(S_ratio) }})</li>
+      </ul>
+
+      <div class="center">
+        <img src="{{ url_for('output_file', filename=plot) }}" alt="RS plot" class="plot">
+      </div>
+
+      <div class="conclusion {{ 'ok' if 'KHÔNG' in conclusion else 'warn' }}">
+        <strong>Kết luận:</strong> {{ conclusion }}
+      </div>
+
+      <div class="actions">
+        <a class="btn outline" href="{{ url_for('index') }}">Phân tích ảnh khác</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

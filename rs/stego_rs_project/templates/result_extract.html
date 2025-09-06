@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kết quả giải mã</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="container">
+    <h1>Kết quả giải mã văn bản</h1>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Thông điệp trích xuất:</h2>
+      <p>{{ message }}</p>
+    </div>
+    <a href="{{ url_for('index') }}">⬅ Quay lại trang chính</a>
+  </main>
+
+  <footer class="container footer">
+    <small>© 2025 Stego RS Demo</small>
+  </footer>
+</body>
+</html>
